@@ -1,4 +1,53 @@
-<h1>Spaceships#index</h1>
-<p>Find me in app/views/spaceships/index.html.erb</p>
 
-<%#= link_to "New spaceship", spaceships_new_path if policy(Spaceship).new? %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <h3 class = "text-secondary">Goodbye World</h3><%#=  content_tag(:i,"", class: "fa-solid fa-rocket fa-1x") %>
+
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mr-3">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Home", spaceships_path , class: "nav-link text-secondary" %>
+          </li>
+
+          <li class="nav-item dropdown">
+            <%= image_tag "https://ichef.bbci.co.uk/news/976/cpsprodpb/D6B0/production/_95806945_gettyimages-590147780.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "My Spaceships", "#", class: "dropdown-item" %>
+               <%= link_to "My Messages", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", spaceships_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", users/sign_in_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign up", users/sign_up_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<%# Footer %>
+<div class="footer fixed-bottom d-flex justify-content-center">
+  <div class="footer-links ">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This experience is made with <i class="fas fa-heart"></i> from Outer Space
+  </div>
+</div>
