@@ -1,2 +1,8 @@
 <h1>Spaceships#show</h1>
 <p>Find me in app/views/spaceships/show.html.erb</p>
+
+<% if policy(@spaceship).edit? %>
+<%= link_to "Edit this spaceship", edit_spaceship_path(@spaceship) %> |
+<% end %>
+
+<%= button_to "Destroy this spaceship", @spaceship, method: :delete if policy(@spaceship).destroy? %>
