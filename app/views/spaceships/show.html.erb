@@ -1,47 +1,36 @@
-<h1>Welcome to the homebase of</h1>
-<h1><strong><%= @spaceship.name %>!</strong></h1>
-<p>Here you can find more information and book your spaceship: <strong><%= @spaceship.name %></strong> </p>
+
 
 <div class="container margin-top-negative">
-<div class="card-trip">
-
-      <img src="https://blu-ray-rezensionen.net/wp-content/uploads/2020/01/serenity-flucht-in-neue-welten-4k-uhd-blu-ray-review-szene-2-e1578382288763.jpg" />
-       <div>
-        <div class="card-trip-infos">
-
-      <h2><%= @spaceship.name %></h2>
-      <h3>A bit more about this spaceship...</h3>
-      <p><%= @spaceship.description %></p>
-    </div>
-    <h2 class="card-trip-pricing"><p><%= @spaceship.price %>$</h2>
-     <p><%= @spaceship.max_people %></p>
+<h1>Welcome to the homebase of</h1>
+<h1 class="text-align-center"><strong><%= @spaceship.name %>!</strong></h1>
+<p>Here you can find more information and book your journey with: <strong><%= @spaceship.name %></strong> </p>
+<div class="card mb-3">
+  <img src="https://blu-ray-rezensionen.net/wp-content/uploads/2020/01/serenity-flucht-in-neue-welten-4k-uhd-blu-ray-review-szene-2-e1578382288763.jpg"" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%= @spaceship.name %></h5>
+    <p class="card-text"><%= @spaceship.description %>.</p>
+    <p class="card-text">price: <b><%= @spaceship.price %></b> $</p>
+    <p class="card-text"><small class="text-muted">occupancy: <%= @spaceship.max_people %></small></p>
   </div>
+  <div class="container margin-top-negative">
+  <button type="button" class="btn btn-dark"><strong>Book me!</strong> <br><small>(won't regret)</small></button>
   </div>
+</div>
 </div>
 
 
+  </div>
 
-<div class="container margin-top-negative">
-  <div class="row">
-    <div class="col-8">
-      <div class="card-trip">
-        <h1><%= @spaceship.name %></h1>
-        <p class="spaceship-show-description"><%= @spaceship.description %></p>
-      </div>
-      <div class="card-trip">
-        <h3>A bit more about this spaceship...</h3>
-        <p><%= @spaceship.max_people %></p>
-        <p><%= @spaceship.price %></p>
-        <div class="map" style="background-image: url('')"></div>
-      </div>
-    </div>
 
-    <div class="col-4">
-      <div class="spacesgip-show-card-trip">
-        <h5>Book this Spaceship!</h5>
 
+
+
+
+  <div>
 <% if policy(@spaceship).edit? %>
 <%= link_to "Edit this spaceship", edit_spaceship_path(@spaceship) %> |
 <% end %>
 
 <%= button_to "Destroy this spaceship", @spaceship, method: :delete if policy(@spaceship).destroy? %>
+</div>
+</div>
