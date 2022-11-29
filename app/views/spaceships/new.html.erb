@@ -1,2 +1,40 @@
-<h1>Spaceships#new</h1>
-<p>Find me in app/views/spaceships/new.html.erb</p>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://astronomy.com/-/media/Images/News%20and%20Observing/News/2020/11/CrewDragonabort.jpg?mw=600
+)">
+  Ready to launch?
+</div>
+
+
+<div class="new-host">
+</h1>Become a host - tell us about your spaceship!</h1>
+</div>
+
+
+
+<%= simple_form_for(@spaceship) do |f| %>
+<div class="form_group_all">
+ <div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+<div class="form-group">
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+</div>
+<div class="form-group">
+  <%= f.label :max_people %>
+  <%= f.text_field :max_people %>
+</div>
+<div class="form-group">
+  <%= f.text_field :price %>
+  <%= f.label :price %>
+</div>
+</div>
+<div class="background-new-host" style= "background-image: url(https://w0.peakpx.com/wallpaper/253/916/HD-wallpaper-earth-from-space-space-earth-at-night-earth-earth-space-earth-from-above-night.jpg)">
+<div class="form-group">
+  <%= f.submit "Launch my spaceship!" %>
+</div>
+<% end %>
+
+
+
+</div>
