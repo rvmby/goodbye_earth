@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-Spaceship.create([{ name: 'Serenity', description: 'Spaceship', max_people: 2, price: 12.50 }])
+Spaceship.create([{ name: 'Serenity', description: 'This spaceship has already successfully returned from mars twice. Previous renters enjoyed the ride', max_people: 2, price: 12.50 }])
 Spaceship.create([{ name: 'Serenity', description: 'Spaceship', max_people: 2, price: 12.50 }])
 Spaceship.create([{ name: 'Serenity', description: 'Spaceship', max_people: 2, price: 12.50 }])
 Spaceship.create([{ name: 'Serenity', description: 'Spaceship', max_people: 2, price: 12.50 }])
