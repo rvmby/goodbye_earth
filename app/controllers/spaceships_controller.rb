@@ -1,21 +1,34 @@
 class SpaceshipsController < ApplicationController
-  before_action :set_spaceship, only: %i[show]
+  before_action :find_spaceship, only: %i[show]
 
   def index
-  end
-
-  def show
+    @spaceships = Spaceship.all
   end
 
   def new
+    @spaceship = Spaceship.new
   end
 
   def create
+    @spaceship = Spaceship.new(flat_params)
+    if @spaceship.save
+      redirect_to spaceships_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def show
+
   end
 
   private
 
-  def set_spaceship
+  def find_spaceship
     @spaceship = Spaceship.find(params[:id])
+  end
+
+  def spaceship_params
+    params.require(:spaceship).permit(:name, :description, :max_people, :price)
   end
 end
