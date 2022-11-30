@@ -26,10 +26,10 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", users/sign_in_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Sign up", users/sign_up_path, class: "nav-link" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>
