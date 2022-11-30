@@ -1,0 +1,94 @@
+
+
+.cards{
+    display: grid;
+    place-items: center;
+    place-items: center center;
+    font-family: 'Poppins',sans-serif;
+    grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+    padding: 50px;
+    grid-gap: 40px;
+    margin: 50px;
+}
+.card{
+    background-color: rgba(10, 10, 10, 0.918);
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.18);
+
+}
+.card:hover{
+  -webkit-box-shadow:0px 0px 117px 0px rgba(45,255,196,0.28);
+    -moz-box-shadow: 0px 0px 117px 0px rgba(45,255,196,0.28);
+    box-shadow: 0px 0px 30px 0px rgba(45,255,196,0.28);
+}
+.container{
+    position: relative;
+    clip-path: polygon(0 0,100% 0, 100% 85%, 0 100%);
+}
+img{
+    width: 100%;
+    display: block;
+    border-radius: 10px 10px 0 0;
+}
+.container:after{
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20px 20px 0 0;
+    opacity: 0.7;
+}
+.card1>.container:after{
+    background-image: linear-gradient(
+        135deg,
+        #0100ec,
+        #fb36f4
+    );
+}
+.card2>.container:after{
+    background-image: linear-gradient(
+        135deg,
+        #2bdce3,
+        #42ffdb
+    );
+}
+.card3>.container:after{
+    background-image: linear-gradient(
+        135deg,
+        #ffab1d,
+        #f8501c
+    );
+}
+.details{
+    padding: 20px 10px;
+}
+.details>h3{
+    color: grey;
+    font-weight: 600;
+    font-size: 18px;
+    margin: 10px 0 15px 0;
+}
+.details>p{
+    color: grey;
+    font-size: 15px;
+    line-height: 30px;
+    font-weight: 400;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
