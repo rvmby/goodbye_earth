@@ -1,2 +1,35 @@
-<h1>Spaceships#new</h1>
-<p>Find me in app/views/spaceships/new.html.erb</p>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://marcabraham.files.wordpress.com/2022/10/spaceship.jpeg
+  )"> Ready to launch?
+</div>
+
+<div class="new-host">
+</h1>Become a host - tell us about your spaceship!</h1>
+</div>
+
+<%= simple_form_for(@spaceship) do |f| %>
+ <div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+<div class="form-group">
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+</div>
+<div class="form-group">
+  <%= f.label :max_people %>
+  <%= f.text_field :max_people %>
+</div>
+<div class="form-group">
+  <%= f.label :price %>
+  <%= f.text_field :price %>
+</div>
+<div class="form-group">
+  <%= f.submit "Launch my spaceship!" %>
+</div>
+<% end %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.slashgear.com/img/gallery/woman-pays-30k-to-get-her-astronaut-boyfriend-back-to-earth/l-intro-1665857880.jpg);">
+  <div class="container">
+    <h1>We have lift off!</h1>
+  </div>
+</div>
