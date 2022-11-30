@@ -7,6 +7,7 @@ class SpaceshipsController < ApplicationController
 
   def show
     authorize @spaceship
+    @booking = Booking.new
   end
 
   def new
@@ -18,6 +19,9 @@ class SpaceshipsController < ApplicationController
     @spaceship = Spaceship.new(spaceship_params)
     @spaceship.user = current_user
     authorize @spaceship
+    @spaceship.save
+
+    redirect_to spaceship_path(@spaceship)
   end
 
   def edit

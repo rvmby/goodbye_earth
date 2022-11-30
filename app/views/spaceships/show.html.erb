@@ -1,8 +1,38 @@
-<h1>Spaceships#show</h1>
-<p>Find me in app/views/spaceships/show.html.erb</p>
+<div class="bg-dark text-white text-center">
 
+<div class="container margin-top-negative">
+  <h1>Welcome to the homebase of</h1>
+  <h1 class="text-align-center"><strong><%= @spaceship.name %>!</strong></h1>
+  <p>Here you can find more information and book your journey with: <strong><%= @spaceship.name %></strong> </p>
+  <div class="card mb-3">
+    <img src="https://blu-ray-rezensionen.net/wp-content/uploads/2020/01/serenity-flucht-in-neue-welten-4k-uhd-blu-ray-review-szene-2-e1578382288763.jpg"" class="card-img-top" alt="...">
+      <div class="card-body text-dark">
+      <div class="d-xl-inline-flex">
+        <h5 class="card-title"><%= @spaceship.name %></h5>
+        <p class="card-text"><%= @spaceship.description %>.</p>
+      </div>
+      <div class="d-xl-inline-flex">
+        <p class="card-text">price: <b><%= @spaceship.price %></b> $</p>
+        <p class="card-text"><small class="text-muted">occupancy: <%= @spaceship.max_people %></small></p>
+      </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+  <div>
 <% if policy(@spaceship).edit? %>
 <%= link_to "Edit this spaceship", edit_spaceship_path(@spaceship) %> |
 <% end %>
 
 <%= button_to "Destroy this spaceship", @spaceship, method: :delete if policy(@spaceship).destroy? %>
+</div>
+</div>
+</div>
