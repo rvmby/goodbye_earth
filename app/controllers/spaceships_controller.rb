@@ -1,6 +1,6 @@
 class SpaceshipsController < ApplicationController
   before_action :find_spaceship, only: %w[show edit update destroy]
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: %w[index show]
 
   def index
     @spaceships = policy_scope(Spaceship)
