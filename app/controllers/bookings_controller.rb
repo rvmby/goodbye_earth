@@ -1,18 +1,20 @@
 class BookingsController < ApplicationController
   def index
+    #@spaceships = policy_scope(Spaceship).where(:user_id => current_user.id)
+    @bookings = policy_scope(Booking).where(user: current_user)
   end
 
   def show
   end
-
 
   def create
     @spaceship = Spaceship.find(params[:spaceship_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.spaceship = @spaceship
+    authorize @booking
     if @booking.save
-      redirect_to spaceships_path
+      redirect_to bookings_path
     else
       render :create, status: :unprocessable_entity
     end
@@ -21,7 +23,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:name, :description, :max_people, :price)
+    params.require(:booking).permit(:name, :description, :max_people, :price, :start_time, :end_time )
   end
 
 
