@@ -3,48 +3,29 @@ class SpaceshipsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @spaceships = policy_scope(Spaceship)
+    # @spaceships = policy_scope(Spaceship).where(:user_id => current_user.id)
+    @bookings = policy_scope(Booking).where(user: current_user)
   end
 
   def show
-    authorize @spaceship
-    @booking = Booking.new
-  end
-
-  def new
-    @spaceship = Spaceship.new
-    authorize @spaceship
   end
 
   def create
-    @spaceship = Spaceship.new(spaceship_params)
-    @spaceship.user = current_user
-    authorize @spaceship
-    @spaceship.save
-
-    redirect_to spaceship_path(@spaceship)
+    @spaceship = Spaceship.find(params[:spaceship_id])
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.spaceship = @spaceship
+    authorize @booking
+    if @booking.save
+      redirect_to bookings_path
+    else
+      render :create, status: :unprocessable_entity
+    end
   end
-
-  def edit
-    authorize @spaceship
-  end
-
-  def update
-    authorize @spaceship
-  end
-
-  def destroy
-    authorize @spaceship
-  end
-
 
   private
 
-  def spaceship_params
-    params.require(:spaceship).permit(:name, :description, :max_people, :price)
-  end
-
-  def find_spaceship
-    @spaceship = Spaceship.find(params[:id])
+  def booking_params
+    params.require(:booking).permit(:name, :description, :max_people, :price, :start_time, :end_time)
   end
 end
