@@ -2,5 +2,5 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :spaceship
 
-  validates :date, presence: true
+  validates :start_time, :end_time, presence: true
 end
