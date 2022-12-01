@@ -1,5 +1,7 @@
 class BookingsController < ApplicationController
   def index
+    #@spaceships = policy_scope(Spaceship).where(:user_id => current_user.id)
+    @bookings = policy_scope(Booking).where(:user_id => current_user.id)
   end
 
   def show
