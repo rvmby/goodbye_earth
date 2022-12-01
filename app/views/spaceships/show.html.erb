@@ -19,11 +19,9 @@
       </div>
   </div>
 </div>
+
+
 </div>
-
-
-
-
 
 
 
@@ -36,4 +34,9 @@
 <%= button_to "Destroy this spaceship", @spaceship, method: :delete if policy(@spaceship).destroy? %>
 </div>
 </div>
-</div>
+
+<%#= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
+  <%#= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+  <%#= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+  <%#= f.submit 'Schedule your appointment' %>
+<%# end %>
