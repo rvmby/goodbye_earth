@@ -1,28 +1,37 @@
-<div class="showcontainer">
-<div class="bg-dark text-white text-center">
 
-<div class="container margin-top-negative">
-  <h1>Welcome to the homebase of</h1>
-  <h1 class="text-align-center"><strong><%= @spaceship.name %>!</strong></h1>
-  <p>Here you can find more information and book your journey with: <strong><%= @spaceship.name %></strong> </p>
-  <div class="card mb-3">
-    <img src="https://blu-ray-rezensionen.net/wp-content/uploads/2020/01/serenity-flucht-in-neue-welten-4k-uhd-blu-ray-review-szene-2-e1578382288763.jpg"" class="card-img-top" alt="...">
-      <div class="card-body text-dark">
-      <div class="d-xl-inline-flex">
-        <h5 class="card-title"><%= @spaceship.name %></h5>
-        <p class="card-text"><%= @spaceship.description %>.</p>
-      </div>
-      <div class="d-xl-inline-flex">
-        <p class="card-text">price: <b><%= @spaceship.price %></b> $</p>
-        <p class="card-text"><small class="text-muted">occupancy: <%= @spaceship.max_people %></small></p>
-      </div>
+<div class="main">
+  <h1 class="text-align-center">Welcome to your spaceship <i class="fa-brands fa-space-awesome"></i> <%= @spaceship.name %></h1>
+  <h4 class="show-h4">Here you can find more information and book your journey with <%= @spaceship.name %></h4>
+
+
+<div class="min-height">
+  <div class="container-md pt-3">
+    <div class="image-box">
+      <img src="https://blu-ray-rezensionen.net/wp-content/uploads/2020/01/serenity-flucht-in-neue-welten-4k-uhd-blu-ray-review-szene-2-e1578382288763.jpg" alt="">
+    </div>
+</div>
+
+<div class="container-md pt-3 pb-3">
+  <div class="d-flex">
+    <div style="width: 65%">
+      <h5><%= @spaceship.name %></h5>
+      <p><%= @spaceship.description %>.</p>
+      <p>price: $<%= @spaceship.price %></b> p/d</p>
+      <p><small class="text-muted">occupancy: <%= @spaceship.max_people %></small></p>
+      <p><%= @spaceship.description %>.</p>
+    </div>
+      <div class="booking-form"></div>
+        <%= simple_form_for [@spaceship, @booking], data: { controller: 'flatpickr' } do |f| %>
+        <%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+        <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+        <%= f.submit 'Send Request' %>
+      <% end %>
       </div>
   </div>
 </div>
+
+
 </div>
-
-
-
 
 
 
@@ -36,4 +45,9 @@
 <%= button_to "Destroy this spaceship", @spaceship, method: :delete if policy(@spaceship).destroy? %>
 </div>
 </div>
-</div>
+
+<%#= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
+  <%#= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+  <%#= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
+  <%#= f.submit 'Schedule your appointment' %>
+<%# end %>

@@ -1,6 +1,6 @@
 class Spaceship < ApplicationRecord
   belongs_to :user
-  has_many :booking, dependent: :destroy
+  has_many :bookings, dependent: :destroy
 
  # validates :description, presence: true
   #validates :name, presence: true
