@@ -1,0 +1,22 @@
+.image-box img {
+    width: 100%;
+    background-size: cover;
+    height: 550px;
+    border-radius: 4px;
+    box-shadow: 17px 20px 21px -7px rgba(0,0,0,1)
+
+}
+.show-h4{
+  text-align: center;
+  font-family: $title-font;
+  color: grey;
+
+}
+
+h1{
+  text-align: center;
+  font-family: $title-font;
+  color: grey;
+  margin-top: 100px;
+  text-shadow: rgb(114, 83, 199) 1px 0 10px;
+}

@@ -19,8 +19,8 @@ class SpaceshipsController < ApplicationController
   def create
     @spaceship = Spaceship.new(spaceship_params)
     @spaceship.user = current_user
-    authorize @spaceship
     @spaceship.save
+    authorize @spaceship
 
     redirect_to spaceship_path(@spaceship)
   end
