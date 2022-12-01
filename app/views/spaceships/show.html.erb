@@ -6,7 +6,7 @@
   <h1 class="text-align-center"><strong><%= @spaceship.name %>!</strong></h1>
   <p>Here you can find more information and book your journey with: <strong><%= @spaceship.name %></strong> </p>
   <div class="card mb-3">
-    <img src="https://blu-ray-rezensionen.net/wp-content/uploads/2020/01/serenity-flucht-in-neue-welten-4k-uhd-blu-ray-review-szene-2-e1578382288763.jpg"" class="card-img-top" alt="...">
+    <%= cl_image_tag @spaceship.photo.key, height: 300, width: 400, crop: :fill %>
       <div class="card-body text-dark">
       <div class="d-xl-inline-flex">
         <h5 class="card-title"><%= @spaceship.name %></h5>
