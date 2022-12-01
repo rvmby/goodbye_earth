@@ -37,6 +37,7 @@ class SpaceshipsController < ApplicationController
     authorize @spaceship
   end
 
+
   private
 
   def spaceship_params
