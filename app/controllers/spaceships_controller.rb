@@ -11,16 +11,24 @@ class SpaceshipsController < ApplicationController
   end
 
   def create
-    @spaceship = Spaceship.find(params[:spaceship_id])
-    @booking = Booking.new(booking_params)
-    @booking.user = current_user
-    @booking.spaceship = @spaceship
-    authorize @booking
-    if @booking.save
-      redirect_to bookings_path
-    else
-      render :create, status: :unprocessable_entity
-    end
+    @spaceship = Spaceship.new(spaceship_params)
+    @spaceship.user = current_user
+    @spaceship.save
+    authorize @spaceship
+
+    redirect_to spaceship_path(@spaceship)
+  end
+
+  def edit
+    authorize @spaceship
+  end
+
+  def update
+    authorize @spaceship
+  end
+
+  def destroy
+    authorize @spaceship
   end
 
   private
