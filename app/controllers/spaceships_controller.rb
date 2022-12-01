@@ -1,5 +1,6 @@
 class SpaceshipsController < ApplicationController
   before_action :find_spaceship, only: %w[show edit update destroy]
+  skip_before_action :authenticate_user!, only: :index
 
   def index
     @spaceships = policy_scope(Spaceship)
@@ -7,6 +8,7 @@ class SpaceshipsController < ApplicationController
 
   def show
     authorize @spaceship
+    @booking = Booking.new
   end
 
   def new
