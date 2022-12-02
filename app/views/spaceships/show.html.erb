@@ -7,7 +7,11 @@
 <div class="min-height">
   <div class="container-md pt-3">
     <div class="image-box">
+    <% if @spaceship.photo.attached? %>
+    <%= cl_image_tag @spaceship.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
       <img src="https://blu-ray-rezensionen.net/wp-content/uploads/2020/01/serenity-flucht-in-neue-welten-4k-uhd-blu-ray-review-szene-2-e1578382288763.jpg" alt="">
+    <% end %>
     </div>
 </div>
 

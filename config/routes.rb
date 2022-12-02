@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   resources :spaceships do
     resources :bookings, only: :create
   end
+
   resources :bookings, only: :index
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :my_spaceships, only: :index
 end
 
 #GET /spaceship/23

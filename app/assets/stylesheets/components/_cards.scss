@@ -104,3 +104,48 @@ img{
   top: -20px;
   width: 40px;
 }
+
+.box {
+  padding: 16px;
+  margin: 60px;
+}
+
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: rgba(10, 10, 10, 0.918);
+  box-shadow: 0 0 30px rgba(0,0,0,0.18);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.wrapper-card {
+  width: 75%;
+  justify-content: text-center;
+  margin: 0 auto;
+}
