@@ -1,12 +1,20 @@
+
 <h1>My Bookings</h1>
+
 
 <div class="bookings">
 
  <% @bookings.each do |booking| %>
-        <div class="card">
-        <%= booking.spaceship.name %>
-        <%= booking.start_time %>
-        <%= booking.status %>
-        <% end %>
+      <div class="book-card">
+        <h2><%= booking.spaceship.name %></h2>
+        <p><small><%= booking.start_time.strftime("%d %B %Y") %></small></p>
+        <p>Your booking is being reviewed by the ship owner...</p>
+        <strong><%= booking.status %></strong>
+        <div class="card-actions">
+          <a href="#" class="link-secondary">Edit <i class="fas fa-pencil-alt"></i></a>
+          <a href="#" class="link-secondary">Delete <i class="far fa-trash-alt"></i></a>
         </div>
+        <hr class="solid">
+        <% end %>
+      </div>
 </div>

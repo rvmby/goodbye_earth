@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.spaceship = @spaceship
+    @booking.status = "pending"
     authorize @booking
     if @booking.save
       redirect_to bookings_path

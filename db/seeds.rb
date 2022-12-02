@@ -25,7 +25,7 @@ puts "Creating Users..."
     spaceship = Spaceship.new(
       user_id: user.id,
       name: Faker::Movies::StarWars.vehicle,
-      description: Faker::Lorem.sentence,
+      description: Faker::Lorem.paragraph(sentence_count: 2),
       max_people: Faker::Number.between(from: 1, to: 10),
       price: Faker::Commerce.price
     )

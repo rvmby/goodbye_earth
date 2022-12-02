@@ -1,0 +1,40 @@
+.book-card {
+  display: flex;
+  align-items: center;
+  margin: 50px;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+}
+
+.book-card .card-actions {
+  opacity: 0;
+  display: flex;
+  transition: ease .3s;
+  color: #5c16829c;
+}
+
+.book-card p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.book-card small {
+  color: #999999;
+  font-weight: bold;
+}
+
+.book-card:hover .card-actions {
+  opacity: 1;
+}
+
+.book-card .card-actions a {
+  color: #999999;
+  margin-left: 16px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.book-card .card-actions a:hover {
+  color: #555555;
+}
