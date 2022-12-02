@@ -3,7 +3,6 @@
 .cards{
     display: grid;
     place-items: center;
-    place-items: center center;
     font-family: 'Poppins',sans-serif;
     grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
     padding: 50px;
@@ -72,7 +71,7 @@ img{
 }
 .details>p{
     color: grey;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 30px;
     font-weight: 400;
 }
