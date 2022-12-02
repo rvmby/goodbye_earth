@@ -4,8 +4,8 @@
 
 <div class="bookings">
 
- <% @bookings.each do |booking| %>
-      <div class="book-card">
+  <div class="book-card">
+    <% @bookings.each do |booking| %>
         <h2><%= booking.spaceship.name %></h2>
         <p><small><%= booking.start_time.strftime("%d %B %Y") %></small></p>
         <p>Your booking is being reviewed by the ship owner...</p>
