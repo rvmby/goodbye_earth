@@ -149,3 +149,17 @@ img{
   justify-content: text-center;
   margin: 0 auto;
 }
+
+.book{
+  border: 1px solid white;
+  width: 30px;
+  text-decoration: none;
+  color: grey;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.book:hover{
+  color: #311da0cb;
+  border: 1px solid #0B0B0C;
+}
