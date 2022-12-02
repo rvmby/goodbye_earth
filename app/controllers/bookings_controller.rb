@@ -13,7 +13,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.spaceship = @spaceship
-    # @booking.status = status.pending
     @booking.status = "pending"
     authorize @booking
     if @booking.save
