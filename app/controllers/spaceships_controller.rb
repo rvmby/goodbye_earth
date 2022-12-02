@@ -3,11 +3,17 @@ class SpaceshipsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    # @spaceships = policy_scope(Spaceship).where(:user_id => current_user.id)
-    @bookings = policy_scope(Booking).where(user: current_user)
+    @spaceships = policy_scope(Spaceship)
   end
 
   def show
+    authorize @spaceship
+    @booking = Booking.new
+  end
+
+  def new
+    @spaceship = Spaceship.new
+    authorize @spaceship
   end
 
   def create
@@ -33,7 +39,11 @@ class SpaceshipsController < ApplicationController
 
   private
 
-  def booking_params
-    params.require(:booking).permit(:name, :description, :max_people, :price, :start_time, :end_time)
+  def spaceship_params
+    params.require(:spaceship).permit(:name, :description, :max_people, :price)
+  end
+
+  def find_spaceship
+    @spaceship = Spaceship.find(params[:id])
   end
 end

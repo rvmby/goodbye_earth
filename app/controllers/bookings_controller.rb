@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
+  # enum status: { pending: 0, confirmed: 1, declined: 2 }
   def index
-    #@spaceships = policy_scope(Spaceship).where(:user_id => current_user.id)
+    # @spaceships = policy_scope(Spaceship).where(:user_id => current_user.id)
     @bookings = policy_scope(Booking).where(user: current_user)
   end
 
@@ -12,6 +13,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.spaceship = @spaceship
+    # @booking.status = status.pending
+    @booking.status = "pending"
     authorize @booking
     if @booking.save
       redirect_to bookings_path
@@ -25,6 +28,4 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:name, :description, :max_people, :price, :start_time, :end_time )
   end
-
-
 end

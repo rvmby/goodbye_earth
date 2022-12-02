@@ -8,45 +8,57 @@
     <!-- start my_requests-section -->
       <h3><u>my requests</u></h3>
       <div class="text-center">
-        <h5> Awesome! Your Spaceships are so attractive </h5>
-        <h6>See who wants to to take a ride !</h6>
+        <h5> Awesome! Your Spaceships are so attractive! </h5>
+        <h6>See who wants to to take a ride:</h6>
       </div>
+
       <div class="wrapper-card">
         <ul class="list-unstyled">
           <% @spaceships.each do |spaceship| %>
-          <% spaceship.booking.each do |booking| %>
+          <% spaceship.bookings.each do |booking| %>
             <li>
-            <% if booking.status == "Pending host validation" %>
-            <%= cl_image_tag(booking.user.photo.path, width: 400, height: 300, crop: :fill, class: "product-image hidden-xs" ) %>
+            <% if booking.status == "pending" %>
+            <%#= cl_image_tag(booking.user.photo.path, width: 400, height: 300, crop: :fill, class: "product-image hidden-xs" ) %>
 
               <div class="card-product">
-                <h3> <%= booking.user.email %> wants to take a ride with you! </h3>
-                <p> Dates : <%= booking.start_time %> and <%= booking.end_time %> </p>
-                <p> From this booking you will earn <%= booking.value %> € </p>
-                <ul class="list-inline product-controls hidden-sm hidden-xs">
-                  <li><%= link_to "Accept ", my_booking_path(booking, booking: {status: "Confirmed"}), method: :patch, class: "btn btn-success"%></li>
-                  <li><%= link_to "Decline", my_booking_path(booking, booking: {status: "Declined"}), method: :patch, class: "btn btn-danger"%></li>
-                </ul>
-                <% elsif booking.status == "Confirmed" %>
-                <%= cl_image_tag(booking.user.photo.path, width: 400, height: 300, crop: :fill, class: "product-image hidden-xs" ) %>
+                <img src="https://www.shutterstock.com/image-illustration/3d-small-death-star-looming-600w-1968498508.jpg" />
+                <div class="card-product-infos">
+                  <h5> <%= booking.user.email %> wants to take a ride with you! </h5>
+                  <p> Dates : <%= booking.start_time %> and <%= booking.end_time %> </p>
+                  <p> From this booking you will earn <strong><%= spaceship.price %> € </strong></p>
+                    <i class="fa-regular fa-circle-check"></i>
+                    <i class="fa-regular fa-circle-xmark"></i>
+                  <ul class="list-inline product-controls hidden-sm hidden-xs">
+                    <li><%#= link_to "Accept ", my_booking_path(booking, booking: {status: "Confirmed"}), method: :patch, class: "btn btn-success"%></li>
+                    <li><%#= link_to "Decline", my_booking_path(booking, booking: {status: "Declined"}), method: :patch, class: "btn btn-danger"%></li>
+                  </ul>
+                  <% elsif booking.status == "Confirmed" %>
+                  <%#= cl_image_tag(booking.user.photo.path, width: 400, height: 300, crop: :fill, class: "product-image hidden-xs" ) %>
+                </div>
 
               <div class="card-product">
-                <h3 class="congrat-text"> Congrats ! <%= booking.user.email %> is staying with you </h3>
-                <p> Dates : <%= booking.start_time %> to <%= booking.end_time %> </p>
-                <p> You will make : <%= booking.value %> € </p> <br>
-                <p> Prepare your bed !</p>
+                <img src="https://www.shutterstock.com/image-illustration/3d-small-death-star-looming-600w-1968498508.jpg" />
+                <div class="card-product-infos">
+                  <h5 class="congrat-text"> Congrats ! <%= booking.user.email %> is staying with you </h5>
+                  <p> Dates : <%= booking.start_time %> to <%= booking.end_time %> </p>
+                  <p> You will make : <%= spaceship.price %> € </p> <br>
+                  <p> Prepare your spaceship !</p>
+                </div>
               </div>
 
                 <ul class="list-inline product-controls hidden-sm hidden-xs">
                   <li><p> Status </p> <p> <i class="fa fa-check-square-o icon-validate" aria-hidden="true"></i></p></li>
                 </ul>
 
-                <% elsif booking.status == "Declined" %>
-                 <%= cl_image_tag(booking.user.photo.path, width: 400, height: 300, crop: :fill, class: "product-image hidden-xs" ) %>
+                <%# elsif booking.status == "Declined" %>
+                 <%#= cl_image_tag(booking.user.photo.path, width: 400, height: 300, crop: :fill, class: "product-image hidden-xs" ) %>
 
               <div class="card-product">
-                <h3 class="congrat-text"> We are so sorry... You won't stay with <%= booking.user.email %> </h3>
-                <p> Dates : <%= booking.start_time %> to <%= booking.end_time %> </p>
+                <img src="https://www.shutterstock.com/image-illustration/3d-small-death-star-looming-600w-1968498508.jpg" />
+                <div class="card-product-infos">
+                  <h5 class="congrat-text"> You decided to not rent your spaceship to <%= booking.user.email %> </h5>
+                  <p> Dates : <%= booking.start_time %> to <%= booking.end_time %> </p>
+                </div>
               </div>
 
                 <ul class="list-inline product-controls hidden-sm hidden-xs">
@@ -87,6 +99,7 @@
           <p><strong><%= spaceship.description %></strong></p>
           <p>Occupancy: <%=spaceship.max_people%></p>
           <p>Price: <strong><%= spaceship.price %> $/day </strong></p>
+          <i class="fa-solid fa-trash-can"></i>
         </div>
       </div>
     </li>

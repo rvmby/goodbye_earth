@@ -7,4 +7,11 @@ class MySpaceshipsController < ApplicationController
     # @my_spaceships.spaceship = @spaceship
   end
 
+  def confirmed
+
+  end
+
+  def declined
+  end
+
 end
