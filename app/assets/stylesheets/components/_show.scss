@@ -1,3 +1,7 @@
+*{
+  color: grey
+}
+
 .image-box img {
     width: 100%;
     background-size: cover;
@@ -19,4 +23,37 @@ h1{
   color: grey;
   margin-top: 100px;
   text-shadow: rgb(114, 83, 199) 1px 0 10px;
+}
+
+.booking-form{
+  padding: 15px;
+  background-color: #151320;
+  position: relative;
+  transition: 1s;
+}
+
+.booking-form:hover{
+  border-radius: 8px;
+  // box-shadow: 17px 20px 21px -7px rgba(0,0,0,1);
+  top: -13px;
+
+box-shadow: #FFF 0 7px 18px, rgb(145, 214, 235) 0 9px 19px, #6495d4 0 17px 20px, rgb(39, 22, 190) 0 20px 40px, 36px 50px 45px 6px rgba(145,7,148,0);
+}
+
+hr.solid {
+  border-top: 3px solid #bbb;
+}
+
+.info p{
+  font-family: $space-font
+}
+
+.info h2{
+  font-family: $title-font;
+  text-shadow: rgb(114, 83, 199) 1px 0 10px;
+  margin-bottom: 16px;
+}
+
+.edit{
+  margin-top: 70px;
 }
