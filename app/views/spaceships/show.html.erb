@@ -11,39 +11,34 @@
     </div>
 </div>
 
-<div class="container-md pt-3 pb-3">
-  <div class="d-flex">
-    <div style="width: 65%">
-      <h5><%= @spaceship.name %></h5>
-      <p><%= @spaceship.description %>.</p>
+<div class="container-md pt-3 pb-3 my-3">
+  <div class="d-flex justify-content-between">
+    <div class="info"style="width: 65%">
+      <h2><%= @spaceship.name %></h2>
+      <p>occupancy: <%= @spaceship.max_people %></p>
       <p>price: $<%= @spaceship.price %></b> p/d</p>
-      <p><small class="text-muted">occupancy: <%= @spaceship.max_people %></small></p>
-      <p><%= @spaceship.description %>.</p>
+      <hr class="solid">
+      <p><%= @spaceship.description %></p>
     </div>
-      <div class="booking-form"></div>
+      <div class="booking-form">
         <%= simple_form_for [@spaceship, @booking], data: { controller: 'flatpickr' } do |f| %>
         <%= f.input :start_time, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
         <%= f.input :end_time, as: :string, input_html: { data: { flatpickr_target: "endTime" } } %>
         <%= f.submit 'Send Request' %>
       <% end %>
       </div>
+    </div>
+        <div class="edit d-flex">
+      <% if policy(@spaceship).edit? %>
+      <%= button_to "Edit this spaceship", edit_spaceship_path(@spaceship) %>
+      <% end %>
+
+      <%= button_to "Destroy this spaceship", @spaceship, method: :delete if policy(@spaceship).destroy? %>
+      </div>
   </div>
 </div>
-
-
 </div>
 
-
-
-
-
-  <div>
-<% if policy(@spaceship).edit? %>
-<%= link_to "Edit this spaceship", edit_spaceship_path(@spaceship) %> |
-<% end %>
-
-<%= button_to "Destroy this spaceship", @spaceship, method: :delete if policy(@spaceship).destroy? %>
-</div>
 </div>
 
 <%#= simple_form_for @booking, data: { controller: 'flatpickr' } do |f| %>
